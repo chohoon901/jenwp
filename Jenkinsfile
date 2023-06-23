@@ -23,7 +23,7 @@ pipeline {
     stage('Checkout Github') {
       steps {
         slackSend (channel: '#jenkins10', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [],
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [],
                   userRemoteConfigs: [[credentialsId: GITCREDENTIAL, url: GITWEBADD]]])
       }  
       post {
